@@ -19,6 +19,9 @@ namespace tr.Service.Mapping
             CreateMap<PostCreateDto, Post>();
             CreateMap<UpdatePostRequestDto, Post>();
             CreateMap<Post, UpdatePostRequestDto>();
+            CreateMap<PostWitUserDto, Post>();
+            CreateMap<Post, PostWitUserDto>();
+
 
         }
     }

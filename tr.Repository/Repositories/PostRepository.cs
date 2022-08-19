@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,5 +15,12 @@ namespace tr.Repository.Repositories
         public PostRepository(trDbContext context) : base(context)
         {
         }
+
+        public async Task<List<Post>> GetPostsWithUsers()
+        {
+            return await _context.Posts.Include(x => x.User).ToListAsync();
+        }
+
+        
     }
 }

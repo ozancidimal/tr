@@ -9,5 +9,6 @@ namespace tr.Core.Repositories
 {
     public interface IUserRepository : IRepository<User>
     {
+        
     }
 }

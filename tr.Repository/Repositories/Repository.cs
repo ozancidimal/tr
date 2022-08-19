@@ -11,7 +11,7 @@ namespace tr.Repository.Repositories
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        private readonly trDbContext _context;
+        protected readonly trDbContext _context;
         private readonly DbSet<T> _dBset;
         public Repository(trDbContext context)
         {

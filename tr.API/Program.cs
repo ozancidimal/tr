@@ -18,6 +18,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers().AddNewtonsoftJson(opt =>
                 opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 builder.Services.AddDbContext<trDbContext>(opt => opt.UseSqlServer(@"Server=DESKTOP-GMGCLPO\ROOTADMIN; Database=trDb; Integrated Security = true"));
+builder.Services.AddScoped<IPostRepository, PostRepository>();
+builder.Services.AddScoped<IPostService, PostService>();
 builder.Services.AddAutoMapper(typeof(trMapProfile));
 builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));

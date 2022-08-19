@@ -11,10 +11,10 @@ namespace tr.API.Controllers
     [ApiController]
     public class PostController : ControllerBase
     {
-        private readonly IService<Post> service;
+        private readonly IPostService service;
         private readonly IMapper mapper;
 
-        public PostController(IService<Post> service, IMapper mapper)
+        public PostController(IPostService service, IMapper mapper)
         {
             this.service = service;
             this.mapper = mapper;
@@ -64,6 +64,13 @@ namespace tr.API.Controllers
         {
             var post = await service.GetById(id);
             return Ok(post);
+        }
+
+        [HttpGet("withUsers")]
+        public async Task<IActionResult> GetPostsWithUsers()
+        {
+            var nevar = await service.GetPostsWithUsers();
+            return Ok(nevar);
         }
     }
 }

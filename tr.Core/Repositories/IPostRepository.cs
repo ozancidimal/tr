@@ -9,5 +9,7 @@ namespace tr.Core.Repositories
 {
     public interface IPostRepository : IRepository<Post>
     {
+        public Task<List<Post>> GetPostsWithUsers();
     }
+
 }
